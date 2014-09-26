@@ -11,7 +11,7 @@ app.post('/deploy/:site', validate, deploy, respond);
 
 // error handler
 app.use(function(err, req, res, next) {
-  res.status = err.status ? err.status : 500;
+  res.status(err.status ? err.status : 500);
   res.send(err.message);
 })
 
