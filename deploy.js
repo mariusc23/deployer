@@ -8,6 +8,8 @@ module.exports = function (req, res, next) {
 
   if (req.query.mode === 'master') {
     condition = req.body.ref == 'refs/heads/master';
+  } else if (req.query.mode === 'branches' && req.query.branch.length > 0) {
+    condition = req.body.ref == 'refs/heads/' + req.query.branch;
   } else {
     condition = req.body.ref.indexOf('refs/tags') >= 0;
   };
