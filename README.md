@@ -34,10 +34,4 @@ Before starting deployer, make sure you have an environment variable for each si
 
 ## Stopping Deployer
 
-```forever stop /var/www/deployer/index.js```
-
-
-## Start command for included example files
-
-See example files with two sites. The starting command for `siteOne.sh` and `siteTwo.sg` would be:   
-```SITEONE_KEY=abc SITETWO_KEY=def forever start deployer/index.js```
+```forever stop /deployer/index.js```

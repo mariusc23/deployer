@@ -1,1 +1,1 @@
-echo "This is the deploy script for siteOne. Woohoo!"
+echo "This is the sample deploy script!"
