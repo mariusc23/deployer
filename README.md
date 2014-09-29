@@ -35,3 +35,15 @@ Before starting deployer, make sure you have an environment variable for each si
 ## Stopping Deployer
 
 ```forever stop /deployer/index.js```
+
+## Modes
+
+By default, the deployer listens for changes to tags. This can be configured to work with changes to master or branches.
+
+#### Master
+Add the following to your webhook url:
+`?mode=master`
+
+#### Branch
+Add the following to your webhook url:
+`?mode=branch&branch=branchName`
