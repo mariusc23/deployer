@@ -34,7 +34,7 @@ Before starting deployer, make sure you have an environment variable for each si
 
 ## Stopping Deployer
 
-```forever stop /deployer/index.js```
+```forever stop deployer/index.js```
 
 ## Modes
 
