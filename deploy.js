@@ -10,7 +10,9 @@ module.exports = function (req, res, next) {
     condition = req.body.ref == 'refs/heads/master';
   } else if (req.query.mode === 'branch' && req.query.branch.length > 0) {
     condition = req.body.ref == 'refs/heads/' + req.query.branch;
-  } else {
+  } else if (req.query.mode === 'circle') {
+    condition = req.body.payload.status === 'success' || req.body.payload.status === 'fixed';
+  } else { // tags
     condition = req.body.ref.indexOf('refs/tags') >= 0;
   };
 
