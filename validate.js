@@ -2,6 +2,10 @@ var checkHmac = require('./hmacChecker'),
     fs = require('fs');
 
 module.exports = function (req, res, next) {
+  var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+
+  console.info([req.method, ip, req.url].join(' '));
+
   if (!process.env[req.params.site.toUpperCase() + '_KEY']) {
     var err = new Error('I do not have a secret for this site.');
     err.status = 404;

@@ -18,14 +18,14 @@ module.exports = function (req, res, next) {
 
   // Start deployment process
   if (condition) {
-    console.log('Beginning deploy script: ', shellCommand);
+    console.info('Beginning deploy script: ', shellCommand);
 
     // Execute our shell script
     exec(shellCommand,
       function (error, stdout, stderr) {
-        console.log(stdout); // feedback
+        console.info(stdout); // feedback
 
-        if (stderr) console.log('stderr: ' + stderr); // oh noes
+        if (stderr) console.info('stderr: ' + stderr); // oh noes
 
         if (error) {
           error.status = 500;
@@ -34,7 +34,7 @@ module.exports = function (req, res, next) {
           req.deployResponse = stdout;
         };
 
-        console.log('Deploy script complete.')
+        console.info('Deploy script complete.')
 
         return next();
       });
